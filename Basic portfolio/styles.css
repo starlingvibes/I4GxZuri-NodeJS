@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
@@ -46,3 +47,53 @@ ul.nav-items li a.active {
   margin-left: 20px;
   list-style-type: none;
 }
+=======
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul.nav-items {
+  display: block;
+  float: none;
+  padding: 14px 16px;
+  overflow: hidden;
+  padding: 0;
+  background-color: #444;
+  list-style-type: none;
+}
+
+ul.nav-items li {
+  float: left;
+}
+
+ul.nav-items li a {
+  text-decoration: none;
+  padding: 14px 16px;
+  text-align: center;
+  display: block;
+  color: white;
+}
+
+ul.nav-items li a.active {
+  background-color: rgb(41, 41, 212);
+}
+
+.body-content {
+  text-align: center;
+  padding-top: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-content span {
+  color: red;
+  text-transform: uppercase;
+}
+
+.body-content ul li {
+  margin-left: 20px;
+  list-style-type: none;
+}
+>>>>>>> c4d14b9aeb9fcc05cae02091fd756c3cce65ef0e

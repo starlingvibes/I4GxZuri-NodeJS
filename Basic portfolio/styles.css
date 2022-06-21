@@ -39,6 +39,7 @@ ul.nav-items li a.active {
 
 .body-content span {
   color: red;
+  text-transform: uppercase;
 }
 
 .body-content ul li {

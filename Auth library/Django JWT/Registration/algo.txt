@@ -1,0 +1,6 @@
+Install Django and Django REST framework then start a project and app
+Add "rest_framework" and "<APP_NAME>" to <PROJECT_NAME>/settings.py under INSTALLED_APPS
+Head to <APP_NAME>/models.py to create a user model
+Head to <PROJECT_NAME>/settings.py and set a new variable => AUTH_USER_MODEL = "<APP_NAME>.User"
+Run `python3 manage.py makemigrations` and `python3 manage.py migrate` from the project directory to make migrations
+Include the "/api" route in the project's urls.py and the "/register" route in the app's urls.py

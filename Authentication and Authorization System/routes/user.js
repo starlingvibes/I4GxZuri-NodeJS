@@ -35,4 +35,16 @@ router.post('/register', (req, res) => {
     });
 });
 
+// deleting a user
+router.delete('/user/delete/:userID', (req, res) => {
+  User.remove({ _id: req.params.userID })
+    .exec()
+    .then((response) =>
+      res.status(200).json({ message: 'User deleted successfully!' })
+    )
+    .catch((err) => {
+      res.status(500).json({ error: err });
+    });
+});
+
 module.exports = router;

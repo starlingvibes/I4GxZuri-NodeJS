@@ -37,7 +37,7 @@ router.post('/register', (req, res) => {
 
 // deleting a user
 router.delete('/user/delete/:userID', (req, res) => {
-  User.remove({ _id: req.params.userID })
+  User.deleteOne({ _id: req.params.userID })
     .exec()
     .then((response) =>
       res.status(200).json({ message: 'User deleted successfully!' })

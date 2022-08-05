@@ -1,6 +1,6 @@
 const db = require('../database');
 
-const userSchema = new db.Schema(
+const staffSchema = new db.Schema(
   {
     name: { type: String, required: true, unique: true },
     email: { type: String, require: true },
@@ -8,11 +8,11 @@ const userSchema = new db.Schema(
     role: {
       type: String,
       enum: ['user', 'staff', 'manager', 'admin'],
-      default: 'user',
+      default: 'staff',
     },
   },
   { timestamps: true }
 );
 
-const User = db.model('User', userSchema);
-module.exports = User;
+const Staff = db.model('Staff', staffSchema);
+module.exports = Staff;

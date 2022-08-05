@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express();
 const controller = require('../controllers/userController');
-const checkAuth = require('../middleware/auth');
+const { verifyUser } = require('../middleware/auth');
 
 require('dotenv').config();
 
 // registration
-router.post('/register', controller.register);
+router.post('user/register', controller.userRegister);
 
 // deleting a user
-router.delete('/user/delete/:userID', checkAuth, controller.delete);
+router.delete('/user/delete/:userID', verifyUser, controller.userDelete);
 
 // logging in
-router.post('/login', controller.login);
+router.post('/user/login', controller.userLogin);
 
 module.exports = router;

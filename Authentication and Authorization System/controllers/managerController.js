@@ -1,9 +1,9 @@
-let User = require('../models/Users');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+let Manager = require('../models/Manager');
 
-exports.userRegister = async (req, res) => {
-  await User.find({ email: req.body.email })
+exports.managerRegister = async (req, res) => {
+  await Manager.find({ email: req.body.email })
     .exec()
     .then((users) => {
       if (users.length >= 1) {
@@ -33,8 +33,8 @@ exports.userRegister = async (req, res) => {
     });
 };
 
-exports.userDelete = async (req, res) => {
-  await User.deleteOne({ _id: req.params.userID })
+exports.managerDelete = async (req, res) => {
+  await Manager.deleteOne({ _id: req.params.userID })
     .exec()
     .then((response) =>
       res.status(200).json({ message: 'User deleted successfully!' })
@@ -44,14 +44,14 @@ exports.userDelete = async (req, res) => {
     });
 };
 
-exports.userLogin = async (req, res) => {
-  await User.find({ email: req.body.email })
+exports.managerLogin = async (req, res) => {
+  await Manager.find({ email: req.body.email })
     .exec()
-    .then((users) => {
-      if (users.length == 0) {
+    .then((managers) => {
+      if (managers.length == 0) {
         return res.sendStatus(404);
       }
-      bcrypt.compare(req.body.password, users[0].password, (err, same) => {
+      bcrypt.compare(req.body.password, managers[0].password, (err, same) => {
         if (err) {
           res.sendStatus(401);
         }
@@ -59,8 +59,8 @@ exports.userLogin = async (req, res) => {
           // create a token
           const token = jwt.sign(
             {
-              email: users[0].email,
-              userID: users[0]._id,
+              email: managers[0].email,
+              userID: managers[0]._id,
             },
             process.env.SECRET_KEY,
             {

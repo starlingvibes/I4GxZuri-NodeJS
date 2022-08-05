@@ -8,6 +8,9 @@ const app = express();
 
 app.use(json());
 app.use(require('./routes/user'));
+app.use(require('./routes/staff'));
+app.use(require('./routes/manager'));
+app.use(require('./routes/admin'));
 
 const PORT = process.env.PORT || 1337;
 

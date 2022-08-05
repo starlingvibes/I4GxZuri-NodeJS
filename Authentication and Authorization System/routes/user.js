@@ -2,6 +2,7 @@ const express = require('express');
 const router = express();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const checkAuth = require('../middleware/auth');
 
 const User = require('../models/Users');
 require('dotenv').config();
@@ -38,7 +39,7 @@ router.post('/register', (req, res) => {
 });
 
 // deleting a user
-router.delete('/user/delete/:userID', (req, res) => {
+router.delete('/user/delete/:userID', checkAuth, (req, res) => {
   User.deleteOne({ _id: req.params.userID })
     .exec()
     .then((response) =>

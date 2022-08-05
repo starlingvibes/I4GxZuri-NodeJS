@@ -3,7 +3,6 @@ const router = express();
 const controller = require('../controllers/userController');
 const checkAuth = require('../middleware/auth');
 
-const User = require('../models/Users');
 require('dotenv').config();
 
 // registration

@@ -2,6 +2,7 @@ const db = require('../database');
 
 const userSchema = new db.Schema(
   {
+    name: { type: String, required: true, unique: true },
     email: { type: String, require: true },
     password: { type: String, require: true },
   },

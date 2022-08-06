@@ -49,7 +49,7 @@ exports.adminDelete = async (req, res) => {
 };
 
 exports.adminLogin = async (req, res) => {
-  await User.find({ email: req.body.email })
+  await Admin.find({ email: req.body.email })
     .exec()
     .then((admins) => {
       if (admins.length == 0) {
@@ -66,7 +66,7 @@ exports.adminLogin = async (req, res) => {
               email: admins[0].email,
               userID: admins[0]._id,
             },
-            process.env.SECRET_KEY,
+            process.env.SECRET_KEY_ADMIN,
             {
               expiresIn: '1h',
             }

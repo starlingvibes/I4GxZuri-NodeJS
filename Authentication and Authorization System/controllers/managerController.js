@@ -66,7 +66,7 @@ exports.managerLogin = async (req, res) => {
               email: managers[0].email,
               userID: managers[0]._id,
             },
-            process.env.SECRET_KEY,
+            process.env.SECRET_KEY_MANAGER,
             {
               expiresIn: '1h',
             }

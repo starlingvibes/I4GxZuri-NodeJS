@@ -62,7 +62,7 @@ exports.staffLogin = async (req, res) => {
               email: staff[0].email,
               userID: staff[0]._id,
             },
-            process.env.SECRET_KEY,
+            process.env.SECRET_KEY_STAFF,
             {
               expiresIn: '1h',
             }

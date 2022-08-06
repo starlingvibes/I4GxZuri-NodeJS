@@ -2,8 +2,8 @@ const db = require('../database');
 
 const managerSchema = new db.Schema(
   {
-    name: { type: String, required: true, unique: true },
-    email: { type: String, require: true },
+    name: { type: String, required: true },
+    email: { type: String, require: true, unique: true },
     password: { type: String, require: true },
     role: {
       type: String,

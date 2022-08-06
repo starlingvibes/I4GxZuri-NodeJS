@@ -6,7 +6,7 @@ const { verifyStaff } = require('../middleware/auth');
 require('dotenv').config();
 
 // registration
-router.post('staff/register', controller.staffRegister);
+router.post('/staff/register', controller.staffRegister);
 
 // deleting a user
 router.delete('/staff/delete/:userID', verifyStaff, controller.staffDelete);

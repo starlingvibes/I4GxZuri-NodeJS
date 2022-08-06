@@ -6,7 +6,7 @@ const { verifyManager } = require('../middleware/auth');
 require('dotenv').config();
 
 // registration
-router.post('manager/register', controller.managerRegister);
+router.post('/manager/register', controller.managerRegister);
 
 // deleting a user
 router.delete(

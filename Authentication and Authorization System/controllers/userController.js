@@ -25,7 +25,7 @@ exports.userRegister = async (req, res) => {
 
             user
               .save()
-              .then((result) => res.sendStatus(201))
+              .then((result) => res.status(201).json({ message: result }))
               .catch((err) => res.status(500).json({ error: err }));
           }
         });

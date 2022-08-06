@@ -17,7 +17,7 @@ exports.managerRegister = async (req, res) => {
               error: err,
             });
           } else {
-            const user = new User({
+            const user = new Manager({
               name: req.body.name,
               email: req.body.email,
               password: hash,
@@ -25,7 +25,11 @@ exports.managerRegister = async (req, res) => {
 
             user
               .save()
-              .then((result) => res.sendStatus(201))
+              .then((result) =>
+                res.status(201).json({
+                  message: result,
+                })
+              )
               .catch((err) => res.status(500).json({ error: err }));
           }
         });

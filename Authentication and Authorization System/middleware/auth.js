@@ -1,12 +1,15 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const secret = process.env.SECRET_KEY;
+const secretUser = process.env.SECRET_KEY_USER;
+const secretStaff = process.env.SECRET_KEY_STAFF;
+const secretManager = process.env.SECRET_KEY_MANAGER;
+const secretAdmin = process.env.SECRET_KEY_ADMIN;
 
 exports.verifyUser = (req, res, next) => {
   try {
     const token = req.headers.authorization;
-    const decoded = jwt.verify(token, secret);
+    const decoded = jwt.verify(token, secretUser);
     req.userData = decoded;
     next();
   } catch (error) {
@@ -17,7 +20,7 @@ exports.verifyUser = (req, res, next) => {
 exports.verifyStaff = (req, res, next) => {
   try {
     const token = req.headers.authorization;
-    const decoded = jwt.verify(token, secret);
+    const decoded = jwt.verify(token, secretStaff);
     req.staffData = decoded;
     next();
   } catch (error) {
@@ -28,7 +31,7 @@ exports.verifyStaff = (req, res, next) => {
 exports.verifyManager = (req, res, next) => {
   try {
     const token = req.headers.authorization;
-    const decoded = jwt.verify(token, secret);
+    const decoded = jwt.verify(token, secretManager);
     req.managerData = decoded;
     next();
   } catch (error) {
@@ -39,7 +42,7 @@ exports.verifyManager = (req, res, next) => {
 exports.verifyAdmin = (req, res, next) => {
   try {
     const token = req.headers.authorization;
-    const decoded = jwt.verify(token, secret);
+    const decoded = jwt.verify(token, secretAdmin);
     req.adminData = decoded;
     next();
   } catch (error) {

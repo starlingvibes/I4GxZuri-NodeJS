@@ -82,3 +82,13 @@ exports.staffLogin = async (req, res) => {
       });
     });
 };
+
+exports.staffFetch = async (req, res) => {
+  await Staff.find()
+    .then((staff) => {
+      return res.status(200).json({
+        message: staff,
+      });
+    })
+    .catch((err) => res.status(400).json({ 'Error: ': err }));
+};

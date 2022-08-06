@@ -86,3 +86,13 @@ exports.adminLogin = async (req, res) => {
       });
     });
 };
+
+exports.adminFetch = async (req, res) => {
+  await Admin.find()
+    .then((admins) => {
+      return res.status(200).json({
+        message: admins,
+      });
+    })
+    .catch((err) => res.status(400).json({ 'Error: ': err }));
+};

@@ -86,3 +86,13 @@ exports.managerLogin = async (req, res) => {
       });
     });
 };
+
+exports.managerFetch = async (req, res) => {
+  await Manager.find()
+    .then((managers) => {
+      return res.status(200).json({
+        message: managers,
+      });
+    })
+    .catch((err) => res.status(400).json({ 'Error: ': err }));
+};

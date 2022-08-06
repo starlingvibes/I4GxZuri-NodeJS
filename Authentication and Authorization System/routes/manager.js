@@ -18,4 +18,7 @@ router.delete(
 // logging in
 router.post('/manager/login', controller.managerLogin);
 
+// fetching all users
+router.get('/managers', controller.managerFetch);
+
 module.exports = router;

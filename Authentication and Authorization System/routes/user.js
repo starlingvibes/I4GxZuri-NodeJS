@@ -14,4 +14,7 @@ router.delete('/user/delete/:userID', verifyUser, controller.userDelete);
 // logging in
 router.post('/user/login', controller.userLogin);
 
+// fetching all users
+router.get('/users', controller.userFetch);
+
 module.exports = router;
